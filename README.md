@@ -2,6 +2,7 @@
 In-class walkthrough of basic C# syntax and methods
 
 ### Setup instructions:
+- Install [.NET Core](https://www.microsoft.com/net/core)
 - Install [Visual Studio Code](https://code.visualstudio.com/Download)
 - Clone down this repository
 - In the repository directory, run `dotnet restore` in the terminal
