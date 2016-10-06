@@ -11,8 +11,9 @@ namespace Bangazon
         {
             // Create a customer and grab first/last name from first argument
             Customer firstCustomer = new Customer();
-            firstCustomer.firstName = args[0].Split(new Char[] { ' ' })[0];
-            firstCustomer.lastName = args[0].Split(new Char[] { ' ' })[1];
+            string[] fullname = args[0].Split(new Char[] { ' ' });
+            firstCustomer.firstName = fullname[0];
+            firstCustomer.lastName = fullname[1];
             firstCustomer.greet();
 
             // Create an order and add product from argument list
