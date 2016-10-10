@@ -53,15 +53,20 @@ namespace Bangazon.Tests
         [InlineDataAttribute("Banana,Squid,Some other junk")]
         public void MultipleProductsCanBeAddedToAnOrder(string products)
         {
-            Order ord = new Order();
             string[] productsArr = products.Split(new char[] {','});
+
+            Order ord = new Order();
+
             foreach (string product in productsArr)
             {
                 ord.addProduct(product);
             }
+            // The local array of products and the products list on the order should be the same length
             Assert.Equal(productsArr.Length, ord.products.Count);
+
             foreach (string product in productsArr)
             {
+                // Every item in the local products array should be in the order's products list
                 Assert.Contains<string>(product, ord.products);
             }
         }
