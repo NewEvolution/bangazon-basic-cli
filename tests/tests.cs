@@ -71,5 +71,27 @@ namespace Bangazon.Tests
                 Assert.Contains<string>(product, ord.products);
             }
         }
+
+        [Theory]
+        [InlineDataAttribute("Banana")]
+        [InlineDataAttribute("Banana,Squid")]
+        [InlineDataAttribute("Banana,Squid,Some other junk")]
+        public void OrdersShouldListProductsAttractively(string products)
+        {
+            string[] productsArr = products.Split(new char[] {','});
+
+            Order ord = new Order();
+
+            foreach (string product in productsArr)
+            {
+                ord.addProduct(product);
+            }
+
+            foreach (string product in productsArr)
+            {
+                // Every item in the local products array should be displayed by listProducts()
+                Assert.Contains($"\nYou ordered {product}", ord.listProducts());
+            }
+        }
     }
 }
