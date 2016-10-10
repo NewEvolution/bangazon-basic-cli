@@ -47,18 +47,23 @@ namespace Bangazon.Tests
             Assert.Contains<string>(product, ord.products);
         }
 
-        [Fact]
-        public void MultipleProductsCanBeAddedToAnOrder()
+        [Theory]
+        [InlineDataAttribute("Banana")]
+        [InlineDataAttribute("Banana,Squid")]
+        [InlineDataAttribute("Banana,Squid,Some other junk")]
+        public void MultipleProductsCanBeAddedToAnOrder(string products)
         {
             Order ord = new Order();
-            ord.addProduct("Banana");
-            Assert.Equal(1, ord.products.Count);
-            Assert.Contains<string>("Banana", ord.products);
-
-            ord.addProduct("Squid");
-            Assert.Equal(2, ord.products.Count);
-            Assert.Contains<string>("Banana", ord.products);
-            Assert.Contains<string>("Squid", ord.products);
+            string[] productsArr = products.Split(new char[] {','});
+            foreach (string product in productsArr)
+            {
+                ord.addProduct(product);
+            }
+            Assert.Equal(productsArr.Length, ord.products.Count);
+            foreach (string product in productsArr)
+            {
+                Assert.Contains<string>(product, ord.products);
+            }
         }
     }
 }
