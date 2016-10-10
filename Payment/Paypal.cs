@@ -2,7 +2,7 @@ using Bangazon.Orders;
 
 namespace Bangazon.Payments
 {
-  class Paypal: Payment {
+  public class Paypal: Payment {
 
     public string email { get; set; }
     public string password { get; set; }

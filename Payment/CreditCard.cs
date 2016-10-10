@@ -2,7 +2,7 @@ using Bangazon.Orders;
 
 namespace Bangazon.Payments
 {
-  class CreditCard: Payment 
+  public class CreditCard: Payment 
   {
 
     public string bankName { get; set; }
@@ -15,6 +15,7 @@ namespace Bangazon.Payments
     public override string process()
     {
       return $"You are using a {this.bankName} card, with the account number {this.accountNumber}\n{base.process()}";
+      
     }
   }
 }
