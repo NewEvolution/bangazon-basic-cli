@@ -76,7 +76,7 @@ namespace Bangazon.Tests
         [InlineDataAttribute("Banana")]
         [InlineDataAttribute("Banana,Squid")]
         [InlineDataAttribute("Banana,Squid,Some other junk")]
-        public void OrdersShouldListProductsAttractively(string products)
+        public void OrdersShouldHaveMethodToListProductsAttractively(string products)
         {
             string[] productsArr = products.Split(new char[] {','});
 
