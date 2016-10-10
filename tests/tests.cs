@@ -61,7 +61,8 @@ namespace Bangazon.Tests
             {
                 ord.addProduct(product);
             }
-            // The local array of products and the products list on the order should be the same length
+            // The local array of products and the order's products list
+            // should have the same number of products
             Assert.Equal(productsArr.Length, ord.products.Count);
 
             foreach (string product in productsArr)
